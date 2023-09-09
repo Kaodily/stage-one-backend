@@ -14,24 +14,22 @@ const weekday = [
   "Saturday",
 ];
 const currentDay = day.getDay();
-const hours = day.getUTCHours();
-const minutes = day.getUTCMinutes();
-const seconds = day.getUTCSeconds();
-const milliseconds = day.getUTCMilliseconds();
-const data = {
-  slack_name: "kaodilim",
-  current_day: currentDay,
-  utc_time: `${ hours}:${minutes}:${seconds}.${milliseconds}`,
-  track: "backend",
-//   github_file_url: "https://github.com/username/repo/blob/main/file_name.ext",
-  github_repo_url: "https://github.com/Kaodily/stage-one-backend",
-  status_code: 200,
-};
-
-
-app.get("/", (req, res) => {
-  res.send("hello world");
+ const now = day.toISOString();
+app.get("/api", (req, res) => {
+  const name = req.query.slack_name;
+  const track = req.query.track;
+  res.send({
+    slack_name: name,
+    current_day: currentDay,
+    utc_time: now,
+    track: track,
+    github_file_url:
+      "https://github.com/Kaodily/stage-one-backend/blob/main/index.js",
+    github_repo_url: "https://github.com/Kaodily/stage-one-backend",
+    status_code: 200,
+  });
 });
+
 app.listen(port, () => {
   console.log("hi");
 });
