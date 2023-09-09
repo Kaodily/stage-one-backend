@@ -14,7 +14,7 @@ const weekday = [
   "Saturday",
 ];
 const currentDay = day.getDay();
-const now = day.toISOString();
+const now = day.toISOString().split(".")[0] + "Z";
 app.get("/", (req, res) => {
   res.send("hello world");
 });
@@ -23,7 +23,7 @@ app.get("/api", (req, res) => {
   const track = req.query.track;
   res.send({
     "slack_name": name,
-    "current_day": currentDay,
+    "current_day": weekday[currentDay],
     "utc_time": now,
     "track": track,
     "github_file_url":
