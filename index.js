@@ -19,19 +19,18 @@ app.get("/", (req, res) => {
   res.send("hello world");
 });
 app.get("/api", (req, res) => {
-    res.send("hi")
-//   const name = req.query.slack_name;
-//   const track = req.query.track;
-//   res.send({
-//     slack_name: name,
-//     current_day: currentDay,
-//     utc_time: now,
-//     track: track,
-//     github_file_url:
-//       "https://github.com/Kaodily/stage-one-backend/blob/main/index.js",
-//     github_repo_url: "https://github.com/Kaodily/stage-one-backend",
-//     status_code: 200,
-//   });
+  const name = req.query.slack_name;
+  const track = req.query.track;
+  res.send({
+    slack_name: name,
+    current_day: currentDay,
+    utc_time: now,
+    track: track,
+    github_file_url:
+      "https://github.com/Kaodily/stage-one-backend/blob/main/index.js",
+    github_repo_url: "https://github.com/Kaodily/stage-one-backend",
+    status_code: 200,
+  });
 });
 
 app.listen(port, () => {
