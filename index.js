@@ -14,7 +14,7 @@ const weekday = [
   "Saturday",
 ];
 const currentDay = day.getDay();
-const now = day.toISOString().split(".")[0] + "Z";
+const now = new Date().toISOString().slice(0,19) + "Z";
 app.get("/", (req, res) => {
   res.send("hello world");
 });
