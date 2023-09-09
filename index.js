@@ -15,6 +15,9 @@ const weekday = [
 ];
 const currentDay = day.getDay();
 const now = day.toISOString();
+app.get("/", (req, res) => {
+  res.send("hello world");
+});
 app.get("/api", (req, res) => {
   const name = req.query.slack_name;
   const track = req.query.track;
