@@ -14,13 +14,14 @@ const weekday = [
   "Saturday",
 ];
 const currentDay = day.getDay();
-const now = new Date().toISOString().slice(0,19) + "Z";
+
 app.get("/", (req, res) => {
   res.send("hello world");
 });
 app.get("/api", (req, res) => {
   const name = req.query.slack_name;
   const track = req.query.track;
+  const now = new Date().toISOString().slice(0,19) + "Z";
   res.send({
     "slack_name": name,
     "current_day": weekday[currentDay],
